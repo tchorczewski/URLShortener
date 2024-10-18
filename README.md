@@ -15,6 +15,10 @@ To containerize the application, navigate to your project directory and run the 
 
 docker build -t <your_image_name> .
 
+To build the container use: 
+
+docker-compose up --build
+
 Configuration
 In the config.py file, there are two commented lines.
 
