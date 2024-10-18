@@ -1,0 +1,48 @@
+openapi: 3.0.0
+info:
+  title: URL Shortener API
+  description: API for shortening URLs and redirection
+  version: 1.0.0
+
+servers:
+  - url: http://127.0.0.1:5000
+
+paths:
+  /:
+    get:
+      summary: Home Page
+      responses:
+        '200':
+          description: Returns the home page
+    post:
+      summary: Shorten URL
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                original_url:
+                  type: string
+                  example: 'http://example.com'
+      responses:
+        '200':
+          description: Takes the URL and returns a shortened_one. Validates if the URL format is correct before processing it.
+          content:
+            text/html:
+              schema:
+                type: string
+  /{code}:
+    get:
+      summary: Redirect to Original URL
+      parameters:
+        - name: code
+          in: path
+          required: true
+          description: The shortened URL code
+          schema:
+            type: string
+      responses:
+        '302':
+          description: Uses the code from the shortened_url to find and redirect to the original_url. Adds https:// to any original_url that was stored without it.
