@@ -29,4 +29,6 @@ This behavior is due to the Celery configuration for the development environment
 Usage:
 Run the application using Docker.
 Access the application through your web browser.
+Application is set to work on 127.0.0.1:5000
 Input a URL to generate a shortened link.
+To access SwaggerUI API description go to 127.0.0.1:5000/swagger
