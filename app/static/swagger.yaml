@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: URL Shortener API
-  description: API for shortening URLs and redirection
+  description: Generate short URLs
   version: 1.0.0
 
 servers:

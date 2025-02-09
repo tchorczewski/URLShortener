@@ -5,3 +5,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 EXPOSE 5000
 CMD ["python", "app.py"]
+
+FROM postgres:17
+ENV POSTGRES_USER=postgres
+ENV POSTGRES_PASSWORD=root
+ENV POSTGRES_DB=url_shortener
+EXPOSE 5432

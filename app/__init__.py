@@ -4,7 +4,7 @@ from app.routes.swagger_route import swagger_bp
 from app.routes.url_route import url_bp
 from .config import Config
 from app.instance.db_models import db
-from tools.utils import celery_init_app
+from tools.celery import celery_init_app
 from os import getenv
 
 
