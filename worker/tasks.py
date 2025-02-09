@@ -1,6 +1,5 @@
 from celery import shared_task
-from db import db, URLShortener
-from flask import jsonify, abort
+from app.instance.db_models import db, URLShortener
 from sqids import Sqids
 
 @shared_task

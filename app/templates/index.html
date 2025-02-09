@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<script>
+    function toggleSubmitButton() {
+        const userInput = document.getElementById('userInput').value;
+        const formButton = document.getElementById('formButton');
+
+        formButton.disabled = userInput.trim() === '';
+    }
+</script>
+{% endblock %}
+
+{% block body %}
+<div class="content" align="center">
+    <h1 align="center">Paste the URL to be shortened</h1>
+    <div id="inputForm">
+        <form method="POST">
+            <input type="text" id="userInput" name="original_url" placeholder="Copy your link here" oninput="toggleSubmitButton()">
+            <div id="formButton">
+                <input type="submit" value="Shorten URL" disabled>
+            </div>
+        </form>
+
+        <div id="result">
+            <h4>Shortened link</h4>
+            {% if short_url %}
+            <input type="text" id="resultInput" value="{{short_url}}" readonly>
+            {% else %}
+            <!-- No link to show -->
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}
